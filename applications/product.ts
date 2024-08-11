@@ -28,3 +28,46 @@ export const getallProduct=async(req:Request,res:Response)=>{
 
 
 }
+
+export const getProductById= async(req:Request,res:Response)=>{
+  const product = await Product.findById(req.params.id);
+  if(!product){
+    return res.status(404).json({message:"Product not found"});
+  }else{
+    return res.status(200).json(product);
+  }
+}
+
+
+export const updateProduct=async(req:Request,res:Response)=>{
+  const product = await Product.findById(req.params.id);
+  if(!product){
+    return res.status(404).json({message:"Product not found"});
+
+}else{
+  const product = await Product.findByIdAndUpdate(req.params.id,{
+    name:req.body.name,
+    quantity:req.body.quantity,
+    price:req.body.price,
+    image:req.body.image
+
+
+
+})
+return res.status(200).send("Updated");
+
+
+}
+}
+
+
+export const deleteProducts = async(req:Request,res:Response)=>{
+  const product = await Product.findByIdAndDelete(req.params.id);
+
+  if(!product){
+    return res.status(404).json({message:"Product not found"});
+
+}else{
+  return res.status(200).send("Deleted");
+}
+}
