@@ -1,6 +1,7 @@
 import express from "express";
 import { connectDb } from "../Infastructure/db.connect";
 import { productRoute } from "../api/product";
+import { customerRoute } from "../api/customer";
 
 
 
@@ -15,7 +16,9 @@ connectDb();
 // Define the routes
 
 
-app.use("/products", productRoute)
+app.use("/product", productRoute)
+
+app.use("/customer",customerRoute)
 
 
 

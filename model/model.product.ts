@@ -1,9 +1,6 @@
-import { timeStamp } from "console";
-import { model } from "mongoose";
+import mongoose from 'mongoose';
 
-const mongoose = require("mongoose");
-
-const ProductSchema = new mongoose.Shema({
+const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please enter product name"],
@@ -18,16 +15,11 @@ const ProductSchema = new mongoose.Shema({
   },
   image: {
     type: String,
-    required: false
+    required: false,
   },
+}, {
+  timestamps: true,
+});
 
-}
-{
-  timeStamp: true,
-
-}
-);
-
-
-const Product = mongoose.model("Product", ProductSchema);
-module.exports = Product;
+const Product = mongoose.model('Product', ProductSchema);
+export default Product;
