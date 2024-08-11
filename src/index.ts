@@ -1,5 +1,6 @@
 import express from "express";
 import { connectDb } from "../Infastructure/db.connect";
+import { productRoute } from "../api/product";
 
 
 
@@ -10,6 +11,13 @@ app.use(express.json());
 // Connect to MongoDB
 
 connectDb();
+
+// Define the routes
+
+
+app.use("/products", productRoute)
+
+
 
 
 app.listen(8000, () => console.log("Server is listening on port 8000."));
