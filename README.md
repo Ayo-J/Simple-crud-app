@@ -33,5 +33,5 @@ This project demonstrates how to perform **CRUD** (Create, Read, Update, Delete)
     ```
 2. **Run the Server**:
     ```bash
-    npm start
+    npm run dev
     ```
